@@ -13,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
     }
 
+    private void Update()
+    {
+        transform.position = new Vector3(transform.position.x, 1.1f, transform.position.z);
+    }
+
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
