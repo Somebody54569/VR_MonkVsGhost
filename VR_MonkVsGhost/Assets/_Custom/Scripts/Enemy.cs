@@ -35,11 +35,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-   /* private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weapon"))
         {
             Destroy(gameObject);
         }
-    }*/
+    }
 }
