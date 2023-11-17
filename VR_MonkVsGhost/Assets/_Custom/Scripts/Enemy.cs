@@ -10,11 +10,13 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private Transform ghostModel;
+    [SerializeField] private PlayerHealth playerHealth;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         ghostModel = transform.Find("Armature_Halloween");
+        playerHealth = FindObjectOfType<PlayerHealth>();
         
         ghostModel.LookAt(player.transform);
         ghostModel.transform.Rotate(-90,0,0);
@@ -41,6 +43,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("killed");
+            playerHealth.enemyKilled += 1;
         }
     }
 }

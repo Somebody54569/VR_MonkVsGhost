@@ -1,21 +1,28 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int currentHealth;
+    public static PlayerHealth instance;
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth;
+    [SerializeField] public int enemyKilled;
+    [SerializeField] private GameObject healthText;
+    [SerializeField] private GameObject enemyKilledText;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        enemyKilled = 0;
     }
 
     private void Update()
     {
-        
+        healthText.GetComponent<TextMeshProUGUI>().text = "Health : " + currentHealth;
+        enemyKilledText.GetComponent<TextMeshProUGUI>().text = "Enemy Killed : " + enemyKilled;
     }
 
     public void TakeDamage(int damageAmount)
