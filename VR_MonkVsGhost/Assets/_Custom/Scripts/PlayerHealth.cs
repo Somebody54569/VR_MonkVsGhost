@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector3(transform.position.x, 1.1f, transform.position.z);
+        
     }
 
     public void TakeDamage(int damageAmount)
@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
         {
             TakeDamage(10);
             Destroy(other.gameObject);
+            Debug.Log("enemyhit");
         }
     }
 

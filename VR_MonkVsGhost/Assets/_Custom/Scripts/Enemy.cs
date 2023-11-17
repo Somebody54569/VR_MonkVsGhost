@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("Weapon"))
         {
             Destroy(gameObject);
+            Debug.Log("killed");
         }
     }
 }
