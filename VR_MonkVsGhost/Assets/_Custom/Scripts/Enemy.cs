@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        ghostModel = transform.Find("Armature_Halloween");
+        ghostModel = transform.Find("GhostModel");
         playerHealth = FindObjectOfType<PlayerHealth>();
         
         ghostModel.LookAt(player.transform);
-        ghostModel.transform.Rotate(-90,0,0);
+        transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
     }
 
     private void Update()
@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
 
             // Move the enemy towards the player
             transform.Translate(directionToPlayer * moveSpeed * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
         }
     }
 
