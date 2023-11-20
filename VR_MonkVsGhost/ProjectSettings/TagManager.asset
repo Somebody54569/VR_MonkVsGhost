@@ -7,6 +7,7 @@ TagManager:
   - SamplesInfoPanel
   - Ghost
   - Weapon
+  - Dome
   layers:
   - Default
   - TransparentFX

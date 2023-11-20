@@ -46,5 +46,11 @@ public class Enemy : MonoBehaviour
             Debug.Log("killed");
             playerHealth.enemyKilled += 1;
         }
+        if (other.CompareTag("Dome"))
+        {
+            Destroy(gameObject);
+            Debug.Log("killed by dome");
+            
+        }
     }
 }
