@@ -8,6 +8,8 @@ TagManager:
   - Ghost
   - Weapon
   - Dome
+  - RoomLight
+  - DomeTrigger
   layers:
   - Default
   - TransparentFX
