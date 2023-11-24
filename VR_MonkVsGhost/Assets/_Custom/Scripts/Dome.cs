@@ -9,6 +9,7 @@ public class Dome : MonoBehaviour
     [SerializeField] private int domeDuration = 5;
     [SerializeField] private int domeCooldown = 5;
     [SerializeField] private bool isCooldown = false;
+    [SerializeField] private GameObject water;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +43,13 @@ public class Dome : MonoBehaviour
     IEnumerator DomeUp()
     {
         dome.SetActive(true);
+        water.SetActive(false);
         yield return new WaitForSeconds(domeDuration);
         dome.SetActive(false);
         isCooldown = true;
         yield return new WaitForSeconds(domeCooldown);
         isCooldown = false;
+        water.SetActive(true);
     }
 
 }
