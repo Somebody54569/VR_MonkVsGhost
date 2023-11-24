@@ -11,7 +11,6 @@ public class TimeManager : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI timerText; // Reference to a UI text element to display the countdown
     [SerializeField] GameObject enemySpawner;
-    [SerializeField] GameObject endGamePanel;
     void Start()
     {
         currentTime = totalTime; // Initialize the current time to the total time
@@ -51,7 +50,6 @@ public class TimeManager : MonoBehaviour
     void EndGame()
     {
         enemySpawner.SetActive(false);
-        endGamePanel.SetActive(true);
         Debug.Log("Game Over!");
     }
 }
