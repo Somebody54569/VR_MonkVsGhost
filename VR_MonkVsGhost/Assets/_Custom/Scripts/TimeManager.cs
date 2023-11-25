@@ -19,6 +19,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject timePanel;
     [SerializeField] private TextMeshProUGUI WinEnemyKilled;
+    
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject endUI;
     void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
@@ -66,6 +69,8 @@ public class TimeManager : MonoBehaviour
     {
         timePanel.SetActive(false);
         winPanel.SetActive(true);
+        pauseButton.SetActive(false);
+        endUI.SetActive(true);
         WinEnemyKilled.text = "Enemy Killed : " + playerHealth.enemyKilled;
         Destroy(enemySpawner);
         isGameOver = true;

@@ -16,6 +16,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endEnemyKilled;
     [SerializeField] private TextMeshProUGUI timeSurvive;
     [SerializeField] private TimeManager timeManager;
+
+    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject dieUI;
     public bool isDead;
 
     private void Start()
@@ -70,8 +73,11 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
         timePanel.SetActive(false);
         diePanel.SetActive(true);
+        pauseButton.SetActive(false);
+        dieUI.SetActive(true);
         endEnemyKilled.text = "Enemy Killed : " + enemyKilled;
         timeSurvive.text = "You Survive " + timeManager.totalTimeSurvive + " Minute"; 
+        
         Debug.Log("Player died.");
     }
 }
