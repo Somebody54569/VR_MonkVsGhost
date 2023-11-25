@@ -6,33 +6,53 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static PlayerHealth instance;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth;
     [SerializeField] public int enemyKilled;
     [SerializeField] private GameObject healthText;
     [SerializeField] private GameObject enemyKilledText;
+    [SerializeField] private GameObject timePanel;
+    [SerializeField] private GameObject diePanel;
+    [SerializeField] private TextMeshProUGUI endEnemyKilled;
+    [SerializeField] private TextMeshProUGUI timeSurvive;
+    [SerializeField] private TimeManager timeManager;
+    public bool isDead;
 
     private void Start()
     {
+        isDead = false;
         currentHealth = maxHealth;
         enemyKilled = 0;
+        diePanel.SetActive(false);
+        timeManager = FindObjectOfType<TimeManager>();
     }
 
     private void Update()
     {
-        healthText.GetComponent<TextMeshProUGUI>().text = "Health : " + currentHealth;
-        enemyKilledText.GetComponent<TextMeshProUGUI>().text = "Enemy Killed : " + enemyKilled;
+        if (!isDead && !timeManager.isGameOver)
+        {
+            healthText.GetComponent<TextMeshProUGUI>().text = "Health : " + currentHealth;
+            enemyKilledText.GetComponent<TextMeshProUGUI>().text = "Enemy Killed : " + enemyKilled;
+        }
+        else
+        {
+            healthText.GetComponent<TextMeshProUGUI>().text = "Health : 0" ;
+        }
+        
     }
 
     public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
-        Debug.Log(currentHealth);
-        if (currentHealth <= 0)
+        if (!isDead && !timeManager.isGameOver)
         {
-            Die();
+            currentHealth -= damageAmount;
+            Debug.Log(currentHealth);
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,8 +67,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        // You can implement death logic here, such as showing a game over screen, respawning, etc.
-        // For example, you can reload the current scene or show a game over panel.
+        isDead = true;
+        timePanel.SetActive(false);
+        diePanel.SetActive(true);
+        endEnemyKilled.text = "Enemy Killed : " + enemyKilled;
+        timeSurvive.text = "You Survive " + timeManager.totalTimeSurvive + " Minute"; 
         Debug.Log("Player died.");
     }
 }

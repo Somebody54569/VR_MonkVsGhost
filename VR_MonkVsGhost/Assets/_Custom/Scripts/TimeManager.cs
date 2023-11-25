@@ -1,25 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] float totalTime = 60f;  // Total time for the countdown in seconds
-    [SerializeField] float currentTime;      // Current time left
-    [SerializeField] bool isGameOver = false; // Flag to track if the game is over
-
-    [SerializeField] TextMeshProUGUI timerText; // Reference to a UI text element to display the countdown
+    [SerializeField] public float currentTime;      // Current time left
+    public bool isGameOver = false; // Flag to track if the game is over
+    [SerializeField] float timeSurvive;
+    public string totalTimeSurvive;
+     
+    [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] TextMeshProUGUI mainTimerText;// Reference to a UI text element to display the countdown
     [SerializeField] GameObject enemySpawner;
+    [SerializeField] private PlayerHealth playerHealth;
     void Start()
     {
+        playerHealth = FindObjectOfType<PlayerHealth>();
         currentTime = totalTime; // Initialize the current time to the total time
         UpdateTimerText();       // Update the UI text to show the initial time
     }
 
     void Update()
     {
-        if (!isGameOver)
+        if (!isGameOver && !playerHealth.isDead)
         {
             // Update the current time based on Time.deltaTime
             currentTime -= Time.deltaTime;
@@ -45,11 +51,18 @@ public class TimeManager : MonoBehaviour
 
         // Update the UI text
         timerText.text = minutes + ":" + seconds;
+        mainTimerText.text = minutes + ":" + seconds;
+
+        timeSurvive = totalTime - currentTime;
+        string surMinutes = Mathf.Floor(timeSurvive / 60).ToString("00");
+        string surSeconds = (timeSurvive % 60).ToString("00");
+        totalTimeSurvive = surMinutes + ":" + surSeconds;
     }
 
-    void EndGame()
+    public void EndGame()
     {
-        enemySpawner.SetActive(false);
+        Destroy(enemySpawner);
+        isGameOver = true;
         Debug.Log("Game Over!");
     }
 }

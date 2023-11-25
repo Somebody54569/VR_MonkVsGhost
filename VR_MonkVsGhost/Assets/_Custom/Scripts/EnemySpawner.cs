@@ -20,8 +20,13 @@ public class EnemySpawner : MonoBehaviour
     public float increaseRateInterval = 10.0f; // Increase rate every 10 seconds
     private float nextIncreaseTime;
 
+    private PlayerHealth playerHealth;
+    private TimeManager timeManager;
+
     private void Start()
     {
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        timeManager = FindObjectOfType<TimeManager>();
         InitializeSpawnPositions();
         currentSpawnInterval = initialSpawnInterval;
         elapsedTime = 0f;
@@ -51,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemiesContinuously()
     {
-        while (true)
+        while (!playerHealth.isDead && !timeManager.isGameOver)
         {
             SpawnEnemy();
 
