@@ -16,6 +16,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI mainTimerText;// Reference to a UI text element to display the countdown
     [SerializeField] GameObject enemySpawner;
     [SerializeField] private PlayerHealth playerHealth;
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject timePanel;
+    [SerializeField] private TextMeshProUGUI WinEnemyKilled;
     void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
@@ -61,6 +64,9 @@ public class TimeManager : MonoBehaviour
 
     public void EndGame()
     {
+        timePanel.SetActive(false);
+        winPanel.SetActive(true);
+        WinEnemyKilled.text = "Enemy Killed : " + playerHealth.enemyKilled;
         Destroy(enemySpawner);
         isGameOver = true;
         Debug.Log("Game Over!");
