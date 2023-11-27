@@ -68,7 +68,6 @@ public class EnemySpawner : MonoBehaviour
             {
                 IncreaseSpawnRate();
             }
-
             yield return new WaitForSeconds(currentSpawnInterval);
         }
     }

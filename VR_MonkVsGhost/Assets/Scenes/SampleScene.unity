@@ -2247,7 +2247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c492ede9fe171a245a5526522919f7d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 90
+  totalTime: 120
   currentTime: 0
   isGameOver: 0
   timeSurvive: 0
@@ -2288,7 +2288,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a600c76713a324a897dda9cf34309b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPaused: 0
   gameUI: {fileID: 1893057651}
   pauseButton: {fileID: 1786804538}
   pauseUI: {fileID: 325031146}
@@ -3226,13 +3225,13 @@ MonoBehaviour:
   enemyPrefab: {fileID: 5329136636000538519, guid: 9573dd1a59b0fee448361d79cfb97237,
     type: 3}
   playerTransform: {fileID: 40987178}
-  initialSpawnInterval: 60
+  initialSpawnInterval: 15
   minimumSpawnInterval: 0.5
   maximumSpawnInterval: 10
   spawnIntervalDecreaseRate: 0.1
-  spawnDistance: 10
+  spawnDistance: 20
   currentSpawnInterval: 0
-  increaseRateInterval: 10
+  increaseRateInterval: 20
 --- !u!4 &546484617
 Transform:
   m_ObjectHideFlags: 0

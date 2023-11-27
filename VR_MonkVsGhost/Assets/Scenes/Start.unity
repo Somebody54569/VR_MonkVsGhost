@@ -6040,7 +6040,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: f093e556ba0eca24789995db351fa0fe, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -6881,22 +6881,22 @@ MonoBehaviour:
   _sounds:
   - _soundName: 0
     _clip: {fileID: 8300000, guid: de7768c9fe44dfb40ab47d27c58b0206, type: 3}
-    _volume: 0.5
+    _volume: 1
     _loop: 0
     audioSource: {fileID: 0}
   - _soundName: 1
     _clip: {fileID: 8300000, guid: 2ecfa2d90d656934ab42d88c744b7a7e, type: 3}
-    _volume: 0.5
+    _volume: 0.75
     _loop: 0
     audioSource: {fileID: 0}
   - _soundName: 2
     _clip: {fileID: 8300000, guid: 3232badcac545f04f9f8694845325be8, type: 3}
-    _volume: 0.5
+    _volume: 0.75
     _loop: 0
     audioSource: {fileID: 0}
   - _soundName: 3
     _clip: {fileID: 8300000, guid: 3513b94784f2a2a4ca776e9a307f9357, type: 3}
-    _volume: 0.5
+    _volume: 1
     _loop: 0
     audioSource: {fileID: 0}
   - _soundName: 4
@@ -6906,17 +6906,17 @@ MonoBehaviour:
     audioSource: {fileID: 0}
   - _soundName: 5
     _clip: {fileID: 8300000, guid: 1c9b6bc314ee2974d8231e56dc71c765, type: 3}
-    _volume: 0.5
+    _volume: 1
     _loop: 0
     audioSource: {fileID: 0}
   - _soundName: 6
     _clip: {fileID: 8300000, guid: 919f8d3d139c41c49bb3cd452b91a35e, type: 3}
-    _volume: 0.5
+    _volume: 1
     _loop: 0
     audioSource: {fileID: 0}
   - _soundName: 7
     _clip: {fileID: 8300000, guid: a7619f050d24b2740a99242a25c8358e, type: 3}
-    _volume: 0.5
+    _volume: 0.2
     _loop: 0
     audioSource: {fileID: 0}
 --- !u!4 &1380149353
