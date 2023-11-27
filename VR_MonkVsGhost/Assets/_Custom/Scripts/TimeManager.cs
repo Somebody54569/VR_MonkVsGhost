@@ -74,6 +74,7 @@ public class TimeManager : MonoBehaviour
         WinEnemyKilled.text = "Enemy Killed : " + playerHealth.enemyKilled;
         Destroy(enemySpawner);
         isGameOver = true;
+        SoundManager.instance.Play(SoundManager.SoundName.WinGame);
         Debug.Log("Game Over!");
     }
 }

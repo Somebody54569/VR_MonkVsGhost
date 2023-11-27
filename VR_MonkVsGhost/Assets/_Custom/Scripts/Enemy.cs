@@ -42,12 +42,14 @@ public class Enemy : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
+            SoundManager.instance.Play(SoundManager.SoundName.PlayerAttack);
             Destroy(gameObject);
             Debug.Log("killed");
             playerHealth.enemyKilled += 1;
         }
         if (other.CompareTag("Dome"))
         {
+            SoundManager.instance.Play(SoundManager.SoundName.PlayerAttack); 
             Destroy(gameObject);
             Debug.Log("killed by dome");
             

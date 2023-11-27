@@ -42,6 +42,7 @@ public class Dome : MonoBehaviour
 
     IEnumerator DomeUp()
     {
+        SoundManager.instance.Play(SoundManager.SoundName.DomeUp);
         dome.SetActive(true);
         water.SetActive(false);
         yield return new WaitForSeconds(domeDuration);

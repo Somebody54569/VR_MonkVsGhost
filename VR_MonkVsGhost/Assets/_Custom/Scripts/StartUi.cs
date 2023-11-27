@@ -7,11 +7,13 @@ public class StartUi : MonoBehaviour
 {
     public void StartGame()
     {
+        SoundManager.instance.Play(SoundManager.SoundName.StartGame);
         SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClick);
         Application.Quit();
     }
 }

@@ -59,7 +59,7 @@ public class EnemySpawner : MonoBehaviour
         while (!playerHealth.isDead && !timeManager.isGameOver)
         {
             SpawnEnemy();
-
+            SoundManager.instance.Play(SoundManager.SoundName.EnemySpawn);
             currentSpawnInterval = Mathf.Max(currentSpawnInterval - spawnIntervalDecreaseRate, minimumSpawnInterval);
             currentSpawnInterval = Mathf.Clamp(currentSpawnInterval, minimumSpawnInterval, maximumSpawnInterval);
 

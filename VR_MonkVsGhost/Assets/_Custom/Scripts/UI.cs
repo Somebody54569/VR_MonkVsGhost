@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private bool isPaused;
+   
     [SerializeField] private GameObject gameUI;
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject pauseUI;
@@ -14,7 +14,6 @@ public class UI : MonoBehaviour
     void Start()
     {
         gameUI.SetActive(false);
-        isPaused = false;
     }
 
     // Update is called once per frame
@@ -34,7 +33,7 @@ public class UI : MonoBehaviour
 
     public void PauseGame()
     {
-        
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClick); 
         pauseButton.SetActive(false);
         pauseUI.SetActive(true);
         Time.timeScale = 0f;
@@ -42,6 +41,7 @@ public class UI : MonoBehaviour
 
     public void ResumeGame()
     {
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClick); 
         Time.timeScale = 1f;
         pauseUI.SetActive(false);
         pauseButton.SetActive(true);
@@ -50,6 +50,7 @@ public class UI : MonoBehaviour
     public void ToMenu()
     {
         Time.timeScale = 1f;
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClick); 
         SceneManager.LoadScene(0);
         
     }
@@ -57,6 +58,7 @@ public class UI : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1f;
+        SoundManager.instance.Play(SoundManager.SoundName.ButtonClick); 
         SceneManager.LoadScene(1);
     }
 }

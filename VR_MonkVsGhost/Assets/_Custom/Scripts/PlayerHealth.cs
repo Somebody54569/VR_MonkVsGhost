@@ -65,6 +65,7 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(10);
             Destroy(other.gameObject);
             Debug.Log("enemyhit");
+            SoundManager.instance.Play(SoundManager.SoundName.TakeDamage);
         }
     }
 
@@ -77,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         dieUI.SetActive(true);
         endEnemyKilled.text = "Enemy Killed : " + enemyKilled;
         timeSurvive.text = "You Survive " + timeManager.totalTimeSurvive + " Minute"; 
-        
+        SoundManager.instance.Play(SoundManager.SoundName.LoseGame);
         Debug.Log("Player died.");
     }
 }
