@@ -29,7 +29,9 @@ public class Dome : MonoBehaviour
         {
             if (!isCooldown)
             {
-                Debug.Log("dome up");
+                SoundManager.instance.Play(SoundManager.SoundName.DomeUp);
+                isCooldown = true;
+                //Debug.Log("dome up");
                 StartCoroutine(DomeUp());
             }
             else
@@ -42,12 +44,10 @@ public class Dome : MonoBehaviour
 
     IEnumerator DomeUp()
     {
-        SoundManager.instance.Play(SoundManager.SoundName.DomeUp);
         dome.SetActive(true);
         water.SetActive(false);
         yield return new WaitForSeconds(domeDuration);
         dome.SetActive(false);
-        isCooldown = true;
         yield return new WaitForSeconds(domeCooldown);
         isCooldown = false;
         water.SetActive(true);

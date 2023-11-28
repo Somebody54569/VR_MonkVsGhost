@@ -42,7 +42,7 @@ public class SoundManager : MonoBehaviour
         {
             sound.audioSource = gameObject.AddComponent<AudioSource>();
             sound.audioSource.clip = sound.clip;
-            sound.audioSource.volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+            sound.audioSource.volume = sound.volume;
             sound.audioSource.loop = sound.loop;
         }
 

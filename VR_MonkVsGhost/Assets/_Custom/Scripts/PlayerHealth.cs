@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject dieUI;
+    [SerializeField] private GameObject bath;
     public bool isDead;
 
     private void Start()
@@ -76,6 +77,7 @@ public class PlayerHealth : MonoBehaviour
         diePanel.SetActive(true);
         pauseButton.SetActive(false);
         dieUI.SetActive(true);
+        bath.SetActive(false);
         endEnemyKilled.text = "Enemy Killed : " + enemyKilled;
         timeSurvive.text = "You Survive " + timeManager.totalTimeSurvive + " Minute"; 
         SoundManager.instance.Play(SoundManager.SoundName.LoseGame);

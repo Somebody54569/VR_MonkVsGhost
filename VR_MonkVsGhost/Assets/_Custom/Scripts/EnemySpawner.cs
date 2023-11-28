@@ -85,7 +85,6 @@ public class EnemySpawner : MonoBehaviour
     
     void IncreaseSpawnRate()
     {
-        currentSpawnInterval -= 0.1f;
         nextIncreaseTime += increaseRateInterval;
     }
 }
